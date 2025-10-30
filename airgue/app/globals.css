@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#chatbox {
+    width: 50%;
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #4d4d4d;
+    border-radius: 12px;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+}
+
+#cb {
+    text-align: left;
+    height: 90%;
+    width: 100%;
+}
+
+#cbin {
+    flex: 1;
+    width: 100%;
+    border-radius: 8px;
+    padding: 0.5em;
+    resize: none;
+    border: none;
+}
+
+#cbin:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+input[type="submit"] {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2563eb;
+}
+
+.message_box {
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    max-height: 70%;
+    overflow-y: auto;
+    padding-bottom: 1em;
+}
+
+.message {
+    border: none;
+    border-radius: 16px;
+    padding: 0.5em 1em;
+    max-width: 70%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.message.user {
+    background-color: #3b82f6;
+    color: white;
+    align-self: flex-end;
+}
+
+.message.ai {
+    background-color: #e5e7eb;
+    color: #171717;
+    align-self: flex-start;
+}
